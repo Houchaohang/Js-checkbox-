@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       div div{
+           width: 200px;
+           height: 200px;
+           border: 1px solid red;
+           display: none;
+       }
+       .action{
+           background: red;
+       }
+
+    
+    </style>
+</head>
+<body>
+    <div id="obox">
+        <input type="button" value="红" class="action">
+        <input type="button" value="蓝">
+        <input type="button" value="黑">
+        <div style="display: block">红</div>
+        <div>蓝</div>
+        <div>黑</div>
+    </div>
+    <div id="obox1">
+            <input type="button" value="红" class="action">
+            <input type="button" value="蓝">
+            <input type="button" value="黑">
+            <div style="display: block">红</div>
+            <div>蓝</div>
+            <div>黑</div>
+        </div>
+</body>
+    <script>
+        function tab(Id){
+            var oBox = document.querySelector(Id);
+            var aBtn = oBox.getElementsByTagName('input');
+            var aDiv = oBox.getElementsByTagName('div');
+            for(var i = 0; i< aBtn.length; i++){
+                aBtn[i].index=i;
+                aBtn[i].onclick=function(){
+                    for(var i = 0; i< aBtn.length; i++){
+                        aBtn[i].className='';
+                        aDiv[i].style.display='none';
+                    }
+                aDiv[this.index].style.display='block';
+                this.className='action';
+                }
+            }
+        }
+        window.onload=function(){
+            tab('#obox');
+            tab('#obox1')
+        }
+    </script>
+</html>

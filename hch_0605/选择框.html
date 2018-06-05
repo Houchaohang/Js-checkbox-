@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    全部:
+    <input type="checkbox" id="ok">
+    <hr />
+    <div id="obox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+</body>
+<script>
+
+    window.onload=function(){
+        var oBtn = document.getElementById('ok');
+        var oBox = document.getElementById('obox');
+        var aCh  = oBox.getElementsByTagName('input');
+        oBtn.onclick=function(){
+            if(this.checked==true){
+                for(var i = 0; i< aCh.length; i++){
+                   aCh[i].checked=true;
+                 }
+            }else{
+                for(var i = 0; i< aCh.length; i++){
+                    aCh[i].checked=false;
+                }
+            }
+        };
+        for(var i = 0; i< aCh.length; i++){
+         aCh[i].onclick=function(){
+            var n = 0;
+            for(var i = 0; i< aCh.length; i++){
+                if(aCh[i].checked==true){
+                    n++;
+                }
+            }
+            if(n==aCh.length){
+                oBtn.checked=true;
+            }else{
+                oBtn.checked=false;
+            }
+        }
+      }
+    };
+</script>
+</html>
