@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        table tr{
+            width: 100px;
+            height: 5px;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 100%;" id="tab">
+        <tr>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+        </tr>
+    </table>
+</body>
+<script>
+    window.onload=function(){
+        var Id = document.getElementById('tab');
+        var len = Id.getElementsByTagName('tr')
+        for(var i=0;i<len.length;i++){
+            var j = parseInt(i/3)
+            if(j%2==0){
+                len[i].style.backgroundColor="red";
+            }else{
+                len[i].style.backgroundColor="blue";
+            }
+        }
+    }
+</script>
+</html>
