@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #obox{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="obox">
+        <img src="img/01.png" alt="">
+    </div>
+</body>
+<script>
+    window.onload=function(){
+        var oBox = document.getElementById('obox');
+        var oImg = oBox.getElementsByTagName('img')[0];
+        var count = 0;
+        var time = null;
+        var time2 = null;
+        function togo(){
+            time = setInterval(function(){
+                count++;
+                oImg.src=`img/0${count%3+1}.png`
+            },150)
+        }
+        togo();
+        oImg.onclick=function(){
+            var count2 = 0;
+            clearInterval(time);
+            clearInterval(time2);
+            time2 = setInterval(function(){
+                count2++;
+                oImg.src=`img/fight0${count2%4+1}.png`;
+                if(count2==8){
+                    clearInterval(time2);
+                    togo();
+                }
+            },150)
+        }
+    }
+</script>
+</html>

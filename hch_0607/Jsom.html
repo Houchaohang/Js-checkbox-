@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+        //arguments 是伪数组 不能用数组的方法
+   var json={age:[1,2,3],show:function (a) {
+            console.log(arguments)
+            alert(arguments[0].name);
+            arguments[0].show2();
+            return arguments[0].age;
+       }}
+   var person={name:"张三",age:18,show2:function () {
+           alert(1)
+       }}
+   alert(json.show(person)+person.age)
+</script>
+</html>

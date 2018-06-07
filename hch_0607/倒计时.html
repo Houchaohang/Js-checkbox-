@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span></span>
+</body>
+<script>
+    window.onload=function(){
+        var sp = document.getElementsByTagName('span')[0];
+        var oi = new Date();
+        oi.setFullYear(2018,7,31);
+        oi.setHours(0,0,0,0);
+        var ii = oi.getTime();
+        function Dow(){
+            var dt = new Date();
+            var inow = dt.getTime();
+            var s = parseInt((ii-inow)/1000);
+            var d = parseInt(s/86400);
+                 s%=86400;
+            var h = parseInt(s/3600);
+                 s%=3600;
+            var m = parseInt(s/60);
+                 s%=60;
+            sp.innerHTML = `${d}天:${h}:${m}:${s}`;
+        }
+        Dow();
+        setInterval(Dow,1000)
+    }
+</script>
+</html>
